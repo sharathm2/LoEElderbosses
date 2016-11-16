@@ -1,1 +1,51 @@
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.logic.behaviors;
+using System.Threading.Tasks;
+using wServer.logic.transitions;
+using wServer.logic.loot;
+
+
+Namespace wServer.logic
+{
+    Partial Class BehaviorDb
+    {
+         private _ ElderRealms = () => Behav()
+
+           .Init("Drake God",
+                 new State(
+                     new State(
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                           new PlayerWithinTransition(12.5, "Start")
+         	      	         ),
+         	      	new State("Start",
+                         new Taunt(1.0, true, "Haa.. Haa... You have awoken a beast.  Best be ready mortal."),
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new TimedTransition(5000, "Taunt")
+                             ),
+
+                     new State("Taunt",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "You have made a great mistake.  Die in pain Mortal..."),
+                         new TimedTransition(5000, "Taunt3")
+                             ),
+                             
+                             
+                     new State("Taunt3",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "You have killed my Children, my Grand-Children... I can never forgive you.  You must PERISH!"),
+                         new TimedTransition(5000, "Attack")
+                             ),
+                             
+                     new State("Attack",
+                         new ConditionalEffect(ConditionEffectIndex.Armored),
+                             new StayCloseToSpawn(0.5, 4.5),
+                               new Wander(0.7)
+                               new Spawn("Horned Drake", maxChildren: 5, initialSpawn: 5, coolDown: 150000),
+                                   new Shoot(40, projectileIndex: 0, count: 6, Predictive: 1.5, shootAngle: 6, cooldown: 600),
+                                   new Shoot(40, projectileIndex: 1, count: 25, shootAngle: 12, coolDown: 4500, coolDownOffset: 800),
+                                   
+
