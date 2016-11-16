@@ -1,0 +1,751 @@
+All sprites can be found here. Special thanks to Support for making them :)
+http://www.mediafire.com/file/f3477dnc0bnspla/Sprites.png
+Music ( idk if it matters bc its event thing )
+https://www.youtube.com/watch?v=kVRSWkDTno8
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.logic.behaviors;
+using System.Threading.Tasks;
+using wServer.logic.transitions;
+using wServer.logic.loot;
+
+
+Namespace wServer.logic
+{
+    Partial Class BehaviorDb
+    {
+         private _ ElderRealms = () => Behav()
+
+             .Init("Colchian",
+                 new State(
+                     new State(
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                           new PlayerWithinTransition(15, "Ready")
+         	      	         ),
+         	      	new State("Ready",
+                         new Taunt(1.0, true, "..."),
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new TimedTransition(5000, "Taunt2")
+                             ),
+
+                     new State("Taunt2",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "you slaughter my brothers and steal thier tresure."),
+                         new TimedTransition(5000, "Taunt3")
+                             ),
+
+                     new State("Taunt3",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "i cannot just stand by and let you do continue this... PREPARE TO MEET YOUR DOOM!!"),
+                         new TimedTransition(5000, "Attack")
+                             ),
+                     new State("Attack",
+                          new ConditionalEffect(ConditionEffectIndex.Armored),
+                               new StayCloseToSpawn(0.8, 5),
+                               new Wander(0.4)
+                               new Spawn("White DragonCOL", maxChildren: 7, initialSpawn: 7, coolDown: 100000),
+                                   new Shoot(50, projectileIndex: 0, count: 4, Predictive: 1, shootAngle: 4, cooldown: 400),
+                                   new Shoot(50, projectileIndex: 1, count: 30, shootAngle: 12, coolDown: 3000, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 3, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 4, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 6, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 7, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 9, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 10, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 12, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 13, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 15, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 16, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 18, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 19, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 21, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 22, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 24, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 25, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 27, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 28, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 30, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 31, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 33, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 34, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 36, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 37, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 39, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 40, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 42, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 43, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 45, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 46, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 48, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 49, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 51, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 52, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 54, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 55, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 57, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 58, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 60, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 61, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 63, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 64, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 66, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 67, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 69, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 70, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 72, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 73, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 75, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 76, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 78, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 79, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 81, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 82, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 84, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 85, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 87, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 88, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 90, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 91, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 93, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 94, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 96, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 97, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 99, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 100, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 102, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 103, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 105, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 106, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 108, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 109, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 111, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 112, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 114, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 115, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 117, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 118, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 120, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 121, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 123, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 124, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 126, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 127, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 129, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 130, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 132, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 133, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 135, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 136, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 138, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 139, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 141, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 142, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 144, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 145, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 147, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 148, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 150, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 151, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 153, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 154, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 156, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 157, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 159, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 160, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 162, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 163, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 165, coolDown: 10800, coolDownOffset: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 166, coolDown: 10800, coolDownOffset: 10800),
+                                   new HpLessTransition(0.85, "Ready2")
+                                               ),
+
+                           new State("Ready2",
+                               new ConditionalEffect(ConditionEffectIndex.Armored),
+                               new Spawn("White DragonCOL", maxChildren: 7, initialSpawn: 7, coolDown: 100000),
+                                 new StayCloseToSpawn(0.8, 5),
+                               new Wander(0.4)
+                                   new ConditionalEffect(CondtitionalEffectIndex.Armored),
+                                   new Taunt(1.0, true, "I WILL END YOU MORTAL! DON'T TEST ME!"),
+                                   new Shoot(50, projectileIndex: 0, count: 4, Predictive: 1, shootAngle: 4, cooldown: 400),
+                                   new Shoot(50, projectileIndex: 1, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 600),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 45),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 22.5),
+                            new TimedTransition(13000, "Attack 3")
+                           ),
+                                                          
+                            new State("Attack 3",
+                                new ConditionalEffect(ConditionEffectIndex.Armored),
+                               new StayCloseToSpawn(0.8, 5),
+                               new Wander(0.4),
+                               new Spawn("White DragonCOL", maxChildren: 7, initialSpawn: 7, coolDown: 100000),
+                            new Shoot(50, projectileIndex: 0, count: 4, Predictive: 1, shootAngle: 4, cooldown: 400),
+                            new Shoot(50, projectileIndex: 1, count: 30, shootAngle: 12, coolDown: 3000, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 2, count: 30, shootAngle: 12, coolDown: 3200, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 3, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 4, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 6, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 7, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 9, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 10, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 12, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 13, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 15, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 16, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 18, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 19, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 21, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 22, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 24, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 25, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 27, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 28, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 30, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 31, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 33, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 34, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 36, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 37, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 39, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 40, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 42, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 43, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 45, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 46, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 48, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 49, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 51, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 52, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 54, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 55, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 57, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 58, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 60, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 61, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 63, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 64, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 66, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 67, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 69, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 70, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 72, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 73, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 75, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 76, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 78, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 79, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 81, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 82, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 84, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 85, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 87, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 88, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 90, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 91, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 93, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 94, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 96, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 97, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 99, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 100, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 102, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 103, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 105, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 106, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 108, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 109, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 111, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 112, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 114, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 115, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 117, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 118, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 120, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 121, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 123, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 124, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 126, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 127, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 129, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 130, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 132, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 133, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 135, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 136, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 138, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 139, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 141, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 142, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 144, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 145, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 147, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 148, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 150, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 151, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 153, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 154, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 156, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 157, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 159, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 160, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 162, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 163, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 165, coolDown: 10800, coolDownOffset: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 166, coolDown: 10800, coolDownOffset: 10800),
+                            new HplessTransition(0.50, "Ready3")
+                                                ),
+                            
+                           
+                            new State("Ready3",
+                                    new ConditionalEffect(ConditionEffectIndex.Armored),
+                                    new Taunt(1.0, true, "ARRG ENOUGH OF THIS, IT'S TIME TO BRING A END TO YOUR WORTHLESS LIVES!!!"
+                                    new StayCloseToSpawn(0.8, 5),
+                                    new Follow(1, range: 15),
+                                    new Spawn("White DragonCOL", maxChildren: 7, initialSpawn: 7, coolDown: 100000),
+                                    new Shoot(50, projectileIndex: 5, count: 4, Predictive: 1, shootAngle: 4, cooldown: 400),
+                                   new Shoot(50, projectileIndex: 6, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 600),
+                             new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 45),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 22.5),
+                            new TimedTransition(13000, "attack9")
+                                    ),
+
+                                    new State("attack9",
+                                        new Taunt(1.0, true, "Ha.. ha.."),
+                                        new Spawn("White DragonCOL", maxChildren: 7, initialSpawn: 7, coolDown: 100000),
+                                        new ConditionalEffect(ConditionEffectIndex.Armor Broken),
+                                    new StayCloseToSpawn(0.8, 5),
+                                    new Follow(1, range: 15),
+                                   new Shoot(50, projectileIndex: 5, count: 4, Predictive: 1, shootAngle: 4, cooldown: 400),
+                                   new Shoot(50, projectileIndex: 7, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 600),
+                                   new Shoot(50, projectileIndex: 8, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 610),
+                                   new Shoot(50, projectileIndex: 9, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 620),
+                                   new Shoot(50, projectileIndex: 10, count: 30, shootAngle: 12, coolDown: 1000, coolDownOffset: 630),
+                                   new HplessTransition(0.15, "Final")
+                                    ),
+
+                                    new State("Final",
+                                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                                        new Taunt(1.0, true, "At this rate.. i wont make it")
+                                            new TimedTransition(7000, "Final2")
+                                            ),
+
+                                    new State("Final2",
+                                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                                        new Taunt(1.0, true, "Brothers... forgive me.. "),
+                                        new TimedTransition(7000, "Die")
+                                          ),
+
+                                    new State("Die",
+                                   new Spawn("White DragonCOL", maxChildren: 12, initialSpawn: 12, coolDown: 100000),
+                                   new ConditionalEffect(ConditionEffectIndex.Armored),
+                                    new Follow(1, range: 40),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 3, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 4, coolDown: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 6, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 7, coolDown: 10800, coolDownOffset: 200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 9, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 10, coolDown: 10800, coolDownOffset: 400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 12, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 13, coolDown: 10800, coolDownOffset: 600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 15, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 16, coolDown: 10800, coolDownOffset: 800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 18, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 19, coolDown: 10800, coolDownOffset: 1000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 21, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 22, coolDown: 10800, coolDownOffset: 1200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 24, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 25, coolDown: 10800, coolDownOffset: 1400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 27, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 28, coolDown: 10800, coolDownOffset: 1600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 30, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 31, coolDown: 10800, coolDownOffset: 1800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 33, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 34, coolDown: 10800, coolDownOffset: 2000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 36, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 37, coolDown: 10800, coolDownOffset: 2200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 39, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 40, coolDown: 10800, coolDownOffset: 2400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 42, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 43, coolDown: 10800, coolDownOffset: 2600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 45, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 46, coolDown: 10800, coolDownOffset: 2800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 48, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 49, coolDown: 10800, coolDownOffset: 3000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 51, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 52, coolDown: 10800, coolDownOffset: 3200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 54, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 55, coolDown: 10800, coolDownOffset: 3400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 57, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 58, coolDown: 10800, coolDownOffset: 3600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 60, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 61, coolDown: 10800, coolDownOffset: 3800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 63, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 64, coolDown: 10800, coolDownOffset: 4000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 66, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 67, coolDown: 10800, coolDownOffset: 4200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 69, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 70, coolDown: 10800, coolDownOffset: 4400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 72, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 73, coolDown: 10800, coolDownOffset: 4600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 75, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 76, coolDown: 10800, coolDownOffset: 4800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 78, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 79, coolDown: 10800, coolDownOffset: 5000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 81, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 82, coolDown: 10800, coolDownOffset: 5200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 84, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 85, coolDown: 10800, coolDownOffset: 5400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 87, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 88, coolDown: 10800, coolDownOffset: 5600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 90, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 91, coolDown: 10800, coolDownOffset: 5800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 93, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 94, coolDown: 10800, coolDownOffset: 6000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 96, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 97, coolDown: 10800, coolDownOffset: 6200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 99, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 100, coolDown: 10800, coolDownOffset: 6400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 102, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 103, coolDown: 10800, coolDownOffset: 6600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 105, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 106, coolDown: 10800, coolDownOffset: 6800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 108, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 109, coolDown: 10800, coolDownOffset: 7000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 111, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 112, coolDown: 10800, coolDownOffset: 7200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 114, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 115, coolDown: 10800, coolDownOffset: 7400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 117, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 118, coolDown: 10800, coolDownOffset: 7600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 120, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 121, coolDown: 10800, coolDownOffset: 7800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 123, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 124, coolDown: 10800, coolDownOffset: 8000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 126, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 127, coolDown: 10800, coolDownOffset: 8200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 129, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 130, coolDown: 10800, coolDownOffset: 8400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 132, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 133, coolDown: 10800, coolDownOffset: 8600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 135, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 136, coolDown: 10800, coolDownOffset: 8800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 138, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 139, coolDown: 10800, coolDownOffset: 9000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 141, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 142, coolDown: 10800, coolDownOffset: 9200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 144, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 145, coolDown: 10800, coolDownOffset: 9400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 147, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 148, coolDown: 10800, coolDownOffset: 9600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 150, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 151, coolDown: 10800, coolDownOffset: 9800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 153, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 154, coolDown: 10800, coolDownOffset: 10000),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 156, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 157, coolDown: 10800, coolDownOffset: 10200),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 159, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 160, coolDown: 10800, coolDownOffset: 10400),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 162, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 163, coolDown: 10800, coolDownOffset: 10600),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 165, coolDown: 10800, coolDownOffset: 10800),
+                            new Shoot(50, projectileIndex: 4, count: 6, shootAngle: 60, fixedAngle: 166, coolDown: 10800, coolDownOffset: 10800),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 45),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 180, projectileIndex: 20, coolDownOffset: 0, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 170, projectileIndex: 20, coolDownOffset: 200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 160, projectileIndex: 20, coolDownOffset: 400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 150, projectileIndex: 20, coolDownOffset: 600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 140, projectileIndex: 20, coolDownOffset: 800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 130, projectileIndex: 20, coolDownOffset: 1000, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 120, projectileIndex: 20, coolDownOffset: 1200, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 110, projectileIndex: 20, coolDownOffset: 1400, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 100, projectileIndex: 20, coolDownOffset: 1600, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 1800, shootAngle: 90),
+                            new Shoot(1, 4, coolDown: 10000, fixedAngle: 90, projectileIndex: 20, coolDownOffset: 2000, shootAngle: 22.5)
+                             new HplessTransition(0.3 "Goodbye")
+                                        ),
+
+                              new State("Goodbye",
+                                  new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                                  new Taunt(1.0, true, "I failed..."),                              
+                                  new TimedTransition(7000, "Death")
+                                    ),
+
+                              new State("Death",
+                                  new Suicide()
+                              ),
+                         )
+                new MostDamagers(3,
+                    new OnlyOne(
+                        new ItemLoot("Moonshard Staff", superbag),
+                        new ItemLoot("Skull of Colchian", superbag),
+                        new ItemLoot("Umbral Katana", whitebag),
+                        new ItemLoot("Umbral Bow", whitebag),
+                        new ItemLoot("Umbral Sword", whitebag),
+                        new ItemLoot("Umbral Dagger", whitebag),
+                        new ItemLoot("Umbral Staff", whitebag),
+                        new ItemLoot("Umbral Wand", whitebag),
+
+                        ),
+                    new EggLoot(EggRarity.Common, eggbag + goodloot),
+                    new EggLoot(EggRarity.Uncommon, eggbag + greatloot),
+                    new EggLoot(EggRarity.Rare, eggbag + awesomeloot),
+                    new EggLoot(EggRarity.Legendary, eggbag)
+                ),
+                new Threshold(1,
+                    new TierLoot(10, ItemType.Weapon, awesomeloot),
+                    new TierLoot(11, ItemType.Weapon, awesomeloot),
+                    new TierLoot(12, ItemType.Weapon, awesomeloot),
+                    new TierLoot(13, ItemType.Weapon, awesomeloot),
+                    new TierLoot(10, ItemType.Armor, awesomeloot),
+                    new TierLoot(11, ItemType.Armor, awesomeloot),
+                    new TierLoot(12, ItemType.Armor, awesomeloot),
+                    new TierLoot(13, ItemType.Armor, awesomeloot),
+                    new TierLoot(6, ItemType.Ability, awesomeloot),
+                    new TierLoot(7, ItemType.Ability, awesomeloot),
+                    new TierLoot(5, ItemType.Ring, awesomeloot),
+                    new TierLoot(6, ItemType.Ring, awesomeloot),
+                )
+            )
+            .Init("Baby DragonCOL",
+                new State(
+                    new State("Help",
+                        new StayCloseToSpawn(0.5, range: 29),
+                        new Protect(1.5, "Colchian", protectionRange: 20, acquireRange: 24, reprotectRange: 20),
+                        new Follow(1.5, acquireRange: 14, range: 10),
+                        new Shoot(8.4, count: 1, projectileIndex: 0, shootAngle: 10, coolDown: 245)
+                        )
+                    )
+            )
+
+
+
+
+
+
+   < Object type = "0x6200" id = "Colchian God of Dragons" >
+   < DisplayId > Colchian God of Dragons </ DisplayId >
+   < Class > Character </ Class >
+   < Enemy />
+    < AnimatedTexture >
+        < File >???</ File >            // Do these when added
+        < Index >???</ Index >
+    </ AnimatedTexture >
+   < Size > 90 </ Size >
+   < MaxHitPoints > 400000 </ MaxHitPoints >
+   < Defense > 75 </ Defense >
+   < StasisImmune />
+   < ParalyzeImmune />
+   < StunImmune />
+   < Level > 20 </ Level >
+   < XpMult > 0.9 </ XpMult >
+   < AltTexture id = "1" >
+     < Texture >
+       < File > ??? </ File >               // do these when added
+       < Index > ??? </ Index >
+     </ Texture >
+   </ AltTexture >
+   < Projectile id = "0" >
+     < ObjectId > Confuse Shuriken </ ObjectId >
+     < Speed > 80 </ Speed >
+     < Damage > 95 </ Damage >
+     < LifetimeMS > 2000 </ LifetimeMS >
+     < ConditionEffect duration = "1" > Confuse </ ConditionEffect >
+   </ Projectile >
+   < Projectile id = "1" >
+      < ObjectId > Fire Bullet </ ObjectId >
+      < Speed > 90 </ Speed >
+      < Damage > 120 </ Damage >
+      < LifetimeMS > 1000 </ LifetimeMS >
+      < ConditionEffect duration = "7" > Slowness  </ ConditionEffect >
+    </ Projectile >
+     < Projectile id = "4" >
+      < ObjectId > Small Blue Shuriken </ ObjectId >
+      < Speed > 50 </ Speed >
+      < Damage > 35 </ Damage >
+      < LifetimeMS > 2000 </ LifetimeMS >
+      < ConditionEffect duration = "10" > Armor Broken </ ConditionEffect >
+    </ Projectile >
+     < Projectile id = "20" >
+      < ObjectId > White Flame </ ObjectId >
+      < Speed > 70 </ Speed >
+      < Damage > 90 </ Damage >
+      < LifetimeMS > 1000 </ LifetimeMS >
+    </ Projectile >
+     < Projectile id = "5" >
+      < ObjectId > Armor Peirce Bullet </ ObjectId >
+      < Speed > 100 </ Speed >
+      < Damage > 70 </ Damage >
+      < LifetimeMS > 1000 </ LifetimeMS >
+    </ Projectile >
+      < Projectile id = "7" >
+      < ObjectId > Ice Bullet </ ObjectId >
+      < Speed > 90 </ Speed >
+      < Damage > 75 </ Damage >
+      < LifetimeMS > 1100 </ LifetimeMS >
+    </ Projectile >
+    < Projectile id = "8" >
+      < ObjectId > Fire Bullet </ ObjectId >
+      < Speed > 80 </ Speed >
+      < Damage > 80 </ Damage >
+      < LifetimeMS > 1200 </ LifetimeMS >
+    </ Projectile >
+      < Projectile id = "9" >
+      < ObjectId > Paralyze Bullet </ ObjectId >
+      < Speed > 70 </ Speed >
+      < Damage > 85 </ Damage >
+      < LifetimeMS > 1300 </ LifetimeMS >
+    </ Projectile >
+     < Projectile id = "10" >
+      < ObjectId > Weakness Bullet </ ObjectId >
+      < Speed > 60 </ Speed >
+      < Damage > 95 </ Damage >
+      < LifetimeMS > 1400 </ LifetimeMS >
+    </ Projectile >
+
+
+
+
+
+
+
+ < Object type = "0x6201" id = "White DragonCOL" >
+   < DisplayId > White Dragon Minion </ DisplayId >
+   < Class > Character </ Class >
+   < Enemy />
+    < AnimatedTexture >
+        < File >???</ File >            // Do these when added
+        < Index >???</ Index >
+    </ AnimatedTexture >
+   < Size > 90 </ Size >
+   < MaxHitPoints > 4500 </ MaxHitPoints >
+   < Defense > 10 </ Defense >
+   < ParalyzeImmune />
+   < Level > 20 </ Level >
+   < XpMult > 0.9 </ XpMult >
+   < AltTexture id = "1" >
+     < Texture >
+       < File > ??? </ File >               // do these when added
+       < Index > ??? </ Index >
+     </ Texture >
+   </ AltTexture >
+   < Projectile id = "0" >
+     < ObjectId > White Flame </ ObjectId >
+     < Speed > 80 </ Speed >
+     < Damage > 45 </ Damage >
+     < LifetimeMS > 2000 </ LifetimeMS >
+   </ Projectile >
+
+
+
+
+                     
+
+
+             <----------------- ITEM CODE ------------------->
+
+
+        < Object type = "0x6005" id = "Moonshard Staff" superbag = "SRT" >
+        < Class > Equipment </ Class >
+        < Item />
+        < Texture >
+            < File > ??? </ File >
+            < Index > ??? </ Index >
+        </ Texture >
+        < SlotType > 17 </ SlotType >
+        < Description >an old ancient staff used by the gods to protect the realm</ Description >
+        < RateOfFire > 2 </ RateOfFire >
+        < Sound > weapon / glass_sword </ Sound >
+        < Projectile >
+            < ObjectId > Grey Boomerang </ ObjectId >
+            < Speed > 40 </ Speed >
+            < MinDamage > 35 </ MinDamage >
+            < MaxDamage > 60 </ MaxDamage >
+            < LifetimeMS > 1890 </ LifetimeMS >
+            <Boomerang/>
+        </ Projectile >
+        < BagType > 12 </ BagType >
+        < FameBonus > 5 </ FameBonus >
+        < NumProjectiles > 2 </ NumProjectiles >
+        < ArcGap > 10 </ ArcGap >
+        < OldSound > bladeSwing </ OldSound >
+        < feedPower > 2000 </ feedPower >
+        < Soulbound />
+        < DisplayId > Moonshard Staff </ DisplayId >
+    </ Object >
+
+
+
+    < Object type = "0x6004" id = "Skull of Colchian" superbag = "SRT" >
+    < Class > Equipment </ Class >
+    < Item />
+    < Texture >
+      < File > ??? </ File >
+      < Index > ??? </ Index >
+    </ Texture >
+    < SlotType > 19 </ SlotType >
+    < Description >The skull of a formidable beast who peers all round and never, night or day, allows sweet sleep to conquer his unblinking eyes.</ Description >
+    < ActivateOnEquip stat = "0" amount = "65" > IncrementStat </ ActivateOnEquip >
+    < ActivateOnEquip stat = "20" amount = "5" > IncrementStat </ ActivateOnEquip >
+    < Usable />
+    < BagType > 12 </ BagType >
+    < FameBonus > 10 </ FameBonus >
+    < MpCost > 135 </ MpCost >
+    < Activate radius = "6" totalDamage = "90" > VampireBlast </ Activate >
+    < Activate radius = "2.5" totalDamage = "300" > VampireBlast </ Activate >
+    < feedPower > 900 </ feedPower >
+    < DisplayId > Skull of Colchian </ DisplayId >
+  </ Object >
