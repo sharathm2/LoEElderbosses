@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using wServer.logic.behaviors;
+using System.Threading.Tasks;
+using wServer.logic.transitions;
+using wServer.logic.loot;
+
+
+Namespace wServer.logic
+{
+    Partial Class BehaviorDb
+    {
+         private _ ElderRealms = () => Behav()
+
+           .Init("Buffed Beholder",
+                 new State(
+                     new State(
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                           new PlayerWithinTransition(10.5, "Fight")
+         	      	         ),
+         	      	new State("Fight",
+                         new Taunt(1.0, true, "Haa.. Haa... You have awoken a beholder not meant to be messed with.  Best be ready mortal. Elder will kill you"),
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new TimedTransition(5000, "Taunt")
+                             ),
+
+                     new State("Taunt",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "Look into my eye and be turned to stone!"),
+                         new TimedTransition(5000, "Taunt1")
+                             ),
+                             
+                             
+                     new State("Taunt1",
+                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                         new Taunt(1.0, true, "You have killed my children... my precious beholders... I WILL NEVER FORGIVE YOU MORTAL FOOL.  Face your death."),
+                         new TimedTransition(5000, "Attack")
+                             ),
