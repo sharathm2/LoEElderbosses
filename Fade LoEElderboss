@@ -138,5 +138,14 @@ Namespace wServer.logic
                                    new Shoot(40, projectileIndex: 4, count: 8, shootAngle: 75, fixedAngle: 137, coolDown: 9000, coolDownOffset: 8800)
                                    new Shoot(40, projectileIndex: 4, count: 8, shootAngle: 75, fixedAngle: 138, coolDown: 9000, coolDownOffset: 9000)
                                    new Shoot(40, projectileIndex: 4, count: 8, shootAngle: 75, fixedAngle: 140, coolDown: 9000, coolDownOffset: 9000)
-                                   
+                                   new HplessTransition(0.75, "attack2)
+                                            ),
 
+
+                                    new State("attack2",
+                               new ConditionalEffect(ConditionEffectIndex.Armored),
+                               new Spawn("Horned Drake", maxChildren: 5, initialSpawn: 5, coolDown: 150000),
+                                 new StayCloseToSpawn(0.6, 4.8),
+                               new Wander(0.7)
+                                   new ConditionalEffect(CondtitionalEffectIndex.Armored),
+                                   new Taunt(1.0, true, "You test me... Die in hell you $%^&! YOU WILL NOT MAKE A FOOL OF ME!"),
